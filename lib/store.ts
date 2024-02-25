@@ -1,11 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { counterReducer } from "./features/counter/counterSlice";
 import { twoFactorAuthenticationReducer } from "./features/twoFactorAuthentication/twoFactorAuthenticationSlice";
 
 export const makeStore = () => {
     return configureStore({
         reducer: {
-            counter: counterReducer,
             twoFactorAuthentication: twoFactorAuthenticationReducer,
         },
     });

@@ -5,12 +5,6 @@ import RoleGate from "@/components/auth/role-gate";
 import { FormSuccess } from "@/components/form-success";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import {
-    increment,
-    reset,
-    selectCounter,
-} from "@/lib/features/counter/counterSlice";
-import { useAppDispatch, useAppSelector } from "@/lib/hooks";
 import { UserRole } from "@prisma/client";
 import { toast } from "sonner";
 
@@ -37,9 +31,6 @@ export default function AdminPage() {
         });
     };
 
-    const count = useAppSelector(selectCounter);
-    const dispatch = useAppDispatch();
-
     return (
         <Card className="w-[600px]">
             <CardHeader>
@@ -58,13 +49,6 @@ export default function AdminPage() {
                         Admin-only Server Action
                     </p>
                     <Button onClick={onServerActionClick}>Click to test</Button>
-                </div>
-                <div className="flex flex-row items-center justify-between rounded-lg border p-3 shadow-md">
-                    <p className="text-sm font-medium">Test Redux</p>
-                    <Button onClick={() => dispatch(increment())}>
-                        {count}
-                    </Button>
-                    <Button onClick={() => dispatch(reset())}>Reset</Button>
                 </div>
             </CardContent>
         </Card>
